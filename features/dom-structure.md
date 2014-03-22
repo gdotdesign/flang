@@ -2,7 +2,7 @@
 This document describes how to define DOM document structure.
 
 ## Element Definition
-An *Element Definition* is: the percentage symbol `%` followed by the **tagname** [(Identifier)](tokens#identifier) then **modifiers** (below) then **whitespace**  [(Whitespace)](tokens#whitespace) and then a **block**.
+An *Element Definition* is: the percentage symbol `%` followed by the **tagname** [(Identifier)](tokens.md#identifier) then **modifiers** (below) then **whitespace**  [(Whitespace)](tokens.md#whitespace) and then a **block**.
 
 ```
 %div { ... }
@@ -18,7 +18,7 @@ Modifiers are added after the tagname and before the whitespace.
   * :warning: the *id* attribute cannot be specified with both **id** modifier `#value` and **attribute** modifier `[id=value]`
 
 ### Classes
-Classes to be added when the element is created can be defined with [CSS Class Selector](http://www.w3.org/TR/CSS21/selector.html#class-html). A class is: the dot character `.` followed by the **class name** [(Identifier)](tokens#identifier).
+Classes to be added when the element is created can be defined with [CSS Class Selector](http://www.w3.org/TR/CSS21/selector.html#class-html). A class is: the dot character `.` followed by the **class name** [(Identifier)](tokens.md#identifier).
 
   * :warning: a class can only added once
 
@@ -28,7 +28,7 @@ Classes to be added when the element is created can be defined with [CSS Class S
 ```
 
 ### Id
-The id modifier specifies the value of the id attribute of the element: the hashmark symbol `#` followed by the **value** [(Identifier)](tokens#identifier)
+The id modifier specifies the value of the id attribute of the element: the hashmark symbol `#` followed by the **value** [(Identifier)](tokens.md#identifier)
 
 ```
 %div#login-form { ... }
@@ -36,7 +36,7 @@ The id modifier specifies the value of the id attribute of the element: the hash
 ```
 
 ### Attribute
-Attribute modifiers defines attributes on an element, they are similar to [Attribute Selectors](http://www.w3.org/TR/CSS21/selector.html#attribute-selectors) but there is just one operator: opening bracket `[` then **attribute name** [(Identifier)](tokens#identifier) then equal symbol `=` then **value** [(Value)](tokens#value) the closing bracket `]`.
+Attribute modifiers defines attributes on an element, they are similar to [Attribute Selectors](http://www.w3.org/TR/CSS21/selector.html#attribute-selectors) but there is just one operator: opening bracket `[` then **attribute name** [(Identifier)](tokens.md#identifier) then equal symbol `=` then **value** [(Value)](tokens.md#value) the closing bracket `]`.
 
 There is a shorthand notiation `[checked]` which translates to `[checked=true]`.
 
