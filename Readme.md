@@ -18,12 +18,12 @@ This is the list of requirements that the language should conform by:
     * be readable
     * run in the browser only
   * As a programmer I should be able to
-    * comment on the code
-    * use CSS units ( pixel, em, etc.. )
+    * [comment on the code](features/comment.md)
+    * [use CSS units](features/units.md) ( pixel, em, etc.. )
     * use CSS color definitions ( rgba, hsla, hex, keyword )
     * use HTTP requests ( XMLHTTPRequest )
     * use WebSocket connections ( WebScoket )
-    * define DOM structure / state
+    * [define DOM structure / state](features/dom-structure.md)
     * define reuseable elements
     * bind (and transform) values to display properties
     * describe events
