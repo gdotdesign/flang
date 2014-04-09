@@ -19,9 +19,9 @@ This is the list of requirements that the language should conform by:
     * run in the browser only
   * As a programmer I should be able to
     * [comment on the code](features/comment.md)
-    * [use CSS units](features/units.md) ( pixel, em, etc.. )
-    * use CSS color definitions ( rgba, hsla, hex, keyword )
-    * use HTTP requests ( XMLHTTPRequest )
+    * [use CSS units ( px, em, etc.. )](features/units.md)
+    * [use CSS color definitions ( rgba, hsla, hex, keyword )](features/colors.md)
+    * [use HTTP requests ( XMLHTTPRequest )](features/xhr.md)
     * use WebSocket connections ( WebScoket )
     * [define DOM structure / state](features/dom-structure.md)
     * define reuseable elements
