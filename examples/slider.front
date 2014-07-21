@@ -1,0 +1,32 @@
+$images: [{image: 'image1.png'},{image: 'image2.png'},{image: 'image3.png'}];
+
+@body {
+  ul {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    padding: 0;
+    margin: 0;
+
+    @map $images {
+      $active: self;
+
+      li {
+        background-image: $image;
+        position: absolute;
+        height: inherit;
+        width: inherit;
+        left: 100%;
+        top: 0;
+
+        @if $active {
+          left: 0;
+        }
+      }
+    }
+
+    @every 1s {
+      $active: get($iamges,index($images,$active)+1);
+    }
+  }
+}
