@@ -1,0 +1,42 @@
+@body {
+
+  @collection $items {
+    :change { @post '/items' { data: $items } }
+  }
+
+  %ul {
+    @map $items {
+      %li {
+        %span {
+          text: description
+       }
+
+        %i.icon-done {
+          :click { $done: !$done }
+        }
+
+        %i.icon-remove {
+          :click {  @remove;  }
+        }
+
+        @if done {
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+
+  %input[type=text][placeholder=Add new item...] { value: $item; }
+
+  %button {
+    text: 'Add';
+
+    :click {
+      @push $items {
+        description: $item;
+        checked: false;
+      }
+      $item: '';
+    }
+  }
+}
