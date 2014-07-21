@@ -5,7 +5,7 @@
   }
 
   %ul {
-    @map $items {
+    @map $items | lowerCase(name) =~ $name {
       %li {
         %span {
           text: description

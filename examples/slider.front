@@ -1,4 +1,4 @@
-$images: [{image: 'image1.png'},{image: 'image2.png'},{image: 'image3.png'}];
+$images: [{image: 'image1.jpg'},{image: 'image2.png'},{image: 'image3.png'}] | image =~ /.png$/;
 
 @body {
   ul {
@@ -26,7 +26,7 @@ $images: [{image: 'image1.png'},{image: 'image2.png'},{image: 'image3.png'}];
     }
 
     @every 1s {
-      $active: get($iamges,index($images,$active)+1);
+      $active: next($images,$active);
     }
   }
 }
