@@ -10,8 +10,8 @@
   width: 200px;
 
   @map $images {
-    /* Set active variable */
-    $active: self;
+    /* Set parent active variable */
+    $.active: self;
 
     /* Create img elements for each image */
     img[src=self] {
@@ -19,7 +19,7 @@
       display: none;
 
       /* Show if active */
-      @if $active == self {
+      @if $.active == self {
         display: block;
       }
     }

@@ -32,7 +32,7 @@
         }
 
         i.icon-remove {
-          :click { remove($items, self) }
+          :click { remove($.items, self) }
         }
 
         @if $done {
