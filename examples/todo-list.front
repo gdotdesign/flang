@@ -1,42 +1,56 @@
+/* Define helper methods */
+@def lowerCase(str) {
+  return str.toLowerCase();
+}
+
+@def remove(array, item) {
+  index = array.indexOf(item);
+  array.splice(item, 1);
+}
+
+@def match(what, with) {
+  if(!what || !with) return true;
+  !!what.match(with)
+}
+
 @body {
+  /* Initialize items */
+  $items: [];
 
-  @collection $items {
-    :change { @post '/items' { data: $items } }
-  }
+  input[type=search]
 
-  %ul {
-    @map $items | lowerCase(name) =~ $name {
-      %li {
-        %span {
-          text: description
-       }
+  ul {
+    /* Create list with filters */
+    @map $items | pluck(self, 'description') | lowerCase(self) | match(self,`input[type=search]`) {
+      li {
+        span {
+          text: $description;
+        }
 
-        %i.icon-done {
+        i.icon-done {
           :click { $done: !$done }
         }
 
-        %i.icon-remove {
-          :click {  @remove;  }
+        i.icon-remove {
+          :click { remove($items, self) }
         }
 
-        @if done {
+        @if $done {
           text-decoration: line-through;
         }
       }
     }
   }
 
-  %input[type=text][placeholder=Add new item...] { value: $item; }
+  input[type=text][placeholder=Add new item...];
 
-  %button {
+  button {
     text: 'Add';
 
+    /* When clicked add a new item */
     :click {
-      @push $items {
-        description: $item;
-        checked: false;
-      }
-      $item: '';
+      add($items, { done: false, description: value(`input[type=text]`) } )
+      empty(`input[type=text]`)
     }
   }
 }

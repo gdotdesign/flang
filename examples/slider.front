@@ -1,32 +1,41 @@
-$images: [{image: 'image1.jpg'},{image: 'image2.png'},{image: 'image3.png'}] | image =~ /.png$/;
+/* Define cylce method which cycles through an array - JS Code */
+@def cylce(array, item) {
+  index = array.indexOf(item);
+  if(index === array.length -1) return array[0];
+  return array[index + 1];
+}
 
-@body {
-  ul {
-    position: relative;
-    height: 200px;
-    width: 200px;
-    padding: 0;
-    margin: 0;
+/* Define slider component - it has own context. */
+%slider {
+  width: 200px;
 
-    @map $images {
-      $active: self;
+  @map $images {
+    /* Set active variable */
+    $active: self;
 
-      li {
-        background-image: $image;
-        position: absolute;
-        height: inherit;
-        width: inherit;
-        left: 100%;
-        top: 0;
+    /* Create img elements for each image */
+    img[src=self] {
+      height: inherit;
+      display: none;
 
-        @if $active {
-          left: 0;
-        }
+      /* Show if active */
+      @if $active == self {
+        display: block;
       }
     }
+  }
 
-    @every 1s {
-      $active: next($images,$active);
-    }
+  /* Every one second go to the next item */
+  @every $interval {
+    $active: cylce($images, $active);
+  }
+}
+
+
+@body {
+  slider {
+    /* Initialize images array and filter only pngs */
+    $images: ['image1.jpg','image2.png','image3.png'];
+    $interval: 10s;
   }
 }
