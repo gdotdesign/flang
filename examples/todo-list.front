@@ -21,7 +21,7 @@
 
   ul {
     /* Create list with filters */
-    @map $items | pluck(self, 'description') | lowerCase(self) | match(self,`input[type=search]`) {
+    @map $items | pluck('description') | lowerCase | match(`input[type=search]`) {
       li {
         span {
           text: $description;

@@ -1,0 +1,41 @@
+%members {
+	@map $members {
+		img {
+			src: self.image;
+			id: self.id
+		}
+	}
+}
+
+%card-members {
+	display: $members.length > 0 ? 'block' : 'none';
+
+	members {
+		$members: $members;
+	}
+}
+
+%card {
+
+}
+
+%columns {
+	@map $columns {
+		column {
+			h4 {
+				handle {};
+				span {
+					text: self.title;
+				}
+			}
+
+			div {
+				@map self.cards {
+					card {
+						$node: self;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,8 +1,8 @@
 /* Define cylce method which cycles through an array - JS Code */
 @def cylce(array, item) {
-  index = array.indexOf(item);
-  if(index === array.length -1) return array[0];
-  return array[index + 1];
+  index = array.index item
+  return array.first if index == array.length -1
+  array[index + 1]
 }
 
 /* Define slider component - it has own context. */

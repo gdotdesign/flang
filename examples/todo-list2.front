@@ -1,0 +1,50 @@
+@resource Item {
+  title: String;
+  done: Boolean;
+}
+
+@component todo-list-item {
+  @state {
+    title: '';
+    done: false;
+  }
+
+  @template {
+    span {
+      text: $title;
+    }
+
+    input[type=checkbox] {
+      checked: $done;
+    }
+
+    i.icon-remove {}
+  }
+
+  @classes {
+    done: $done;
+  }
+
+  @events {
+    click 'i.icon-remove' {
+      destroyed: true;
+    }
+
+    change {
+      done: !$done;
+    }
+  }
+}
+
+@component todo-list {
+  @template {
+    todo-list-items {
+      @each Item {
+        todo-list-item {
+          title: $title;
+          done: $done;
+        }
+      }
+    }
+  }
+}
